@@ -85,7 +85,7 @@
 								errorDescription: &errMsg];
 	if( errMsg )
 	{
-		[errMsg autorelease];
+		//[errMsg autorelease];
 		[NSException raise: @"UKXattrMetastoreCantSerialize" format: @"%@", errMsg];
 	}
 	else
@@ -152,7 +152,7 @@
 					errorDescription: &errMsg];
 	if( errMsg )
 	{
-		[errMsg autorelease];
+		//[errMsg autorelease];
 		[NSException raise: @"UKXattrMetastoreCantUnserialize" format: @"%@", errMsg];
 	}
 	
@@ -172,7 +172,7 @@
 {
 	NSMutableData*			data = [[self class] dataForKey: key atPath: path traverseLink: travLnk];
 	
-	return [[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding] autorelease];
+	return [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
 }
 
 

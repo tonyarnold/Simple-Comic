@@ -48,7 +48,6 @@ static NSSize monospaceCharacterSize;
 		imageTypes = [NSMutableArray arrayWithArray: [NSImage imageFileTypes]];
 		[imageTypes removeObject: @"pdf"];
 		[imageTypes removeObject: @"eps"];
-		[imageTypes retain];
 	}
 	
 	return imageTypes;
@@ -60,7 +59,7 @@ static NSSize monospaceCharacterSize;
 
 	if(!textTypes)
 	{
-		textTypes = [[NSArray arrayWithObjects: @"txt", @"nfo", @"info", nil] retain];
+		textTypes = [NSArray arrayWithObjects: @"txt", @"nfo", @"info", nil];
 	}
 	
 	return textTypes;
@@ -83,7 +82,6 @@ static NSSize monospaceCharacterSize;
 		tabLocation = tabSize * monospaceCharacterSize.width;
 		tabStop = [[NSTextTab alloc] initWithType: NSLeftTabStopType location: tabLocation];
 		[tabStops addObject: tabStop];
-		[tabStop release];
 	}
 	
 	NSMutableParagraphStyle * style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -91,9 +89,7 @@ static NSSize monospaceCharacterSize;
 	
 	TSSTInfoPageAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [NSFont fontWithName: @"Monaco" size: 14],  NSFontAttributeName,
 							  style, NSParagraphStyleAttributeName, nil];
-	[TSSTInfoPageAttributes retain];
 	
-	[style release];
 }
 
 
@@ -117,8 +113,6 @@ static NSSize monospaceCharacterSize;
 
 - (void)didTurnIntoFault
 {
-    [loaderLock release];
-    [thumbLock release];
 }
 
 
@@ -174,11 +168,11 @@ static NSSize monospaceCharacterSize;
 	{
 		thumbnailData = [self prepThumbnail];
 		[self setValue: thumbnailData forKey: @"thumbnailData"];
-		thumbnail = [[[NSImage alloc] initWithData: thumbnailData] autorelease];
+		thumbnail = [[NSImage alloc] initWithData: thumbnailData];
 	}
 	else
 	{
-		thumbnail = [[[NSImage alloc] initWithData: thumbnailData] autorelease];
+		thumbnail = [[NSImage alloc] initWithData: thumbnailData];
 	}
 	
     return thumbnail;
@@ -189,7 +183,8 @@ static NSSize monospaceCharacterSize;
 {
 	[thumbLock lock];
 	NSImage * managedImage = [self pageImage];
-	NSImage * thumbnail = nil;
+	NSData * thumbnailData = nil;
+	//NSImage * thumbnail = nil;
 	NSSize pixelSize = [managedImage size];
 	if(managedImage)
 	{
@@ -202,12 +197,12 @@ static NSSize monospaceCharacterSize;
 					   operation: NSCompositeSourceOver 
 						fraction: 1.0];
 		[temp unlockFocus];
-		thumbnail = [[temp TIFFRepresentation] retain];
-		[temp release];
+		thumbnailData = [temp TIFFRepresentation];
+	
 	}
 	[thumbLock unlock];
 	
-	return [thumbnail autorelease];
+	return thumbnailData;
 }
 
 
@@ -231,7 +226,6 @@ static NSSize monospaceCharacterSize;
     
     if(!imageFromData || NSEqualSizes(NSZeroSize, imageSize))
     {
-		[imageFromData release];
         imageFromData = nil;
     }
     else
@@ -243,7 +237,7 @@ static NSSize monospaceCharacterSize;
         [imageFromData setCacheMode: NSImageCacheDefault];
     }
 	
-    return [imageFromData autorelease];
+    return imageFromData;
 }
 
 
@@ -295,9 +289,8 @@ static NSSize monospaceCharacterSize;
 	NSRectFill(pageRect);
 	[text drawWithRect: NSInsetRect( pageRect, 5, 5) options: NSStringDrawingUsesLineFragmentOrigin attributes: TSSTInfoPageAttributes];
 	[textImage unlockFocus];
-	[text release];
 	
-	return [textImage autorelease];
+	return textImage;
 }
 
 
@@ -315,7 +308,7 @@ static NSSize monospaceCharacterSize;
         imageData = [NSData dataWithContentsOfFile: [self valueForKey: @"imagePath"]];
     }
     
-	return [[imageData retain] autorelease];
+	return imageData;
 }
 
 

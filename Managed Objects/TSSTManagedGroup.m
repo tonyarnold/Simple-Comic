@@ -58,8 +58,6 @@
 
 - (void)didTurnIntoFault
 {	
-    [groupLock release];
-    [instance release];
 	instance = nil;
 	groupLock = nil;
 }
@@ -70,7 +68,6 @@
 {
 	BDAlias * newAlias = [[BDAlias alloc] initWithPath: newPath];
 	[self setValue: [newAlias aliasData] forKey: @"pathData"];
-	[newAlias release];
 }
 
 
@@ -79,7 +76,6 @@
 {
 	BDAlias * alias = [[BDAlias alloc] initWithData: [self valueForKey: @"pathData"]];
 	NSString * hardPath = [alias fullPath];
-	[alias release];
 	
 	if(!hardPath)
 	{
@@ -182,7 +178,7 @@
 		[allImages unionSet: [group valueForKey: @"nestedImages"]];
 	}
 	
-	return [allImages autorelease];
+	return allImages;
 }
 
 
@@ -197,7 +193,7 @@
 	static NSArray * extensions = nil;
 	if(!extensions)
 	{
-		extensions = [[NSArray arrayWithObjects: @"rar", @"cbr", @"zip", @"cbz", @"7z", @"cb7", @"lha", @"lzh", nil] retain];
+		extensions = [NSArray arrayWithObjects: @"rar", @"cbr", @"zip", @"cbz", @"7z", @"cb7", @"lha", @"lzh", nil];
 	}
 	
 	return extensions;
@@ -210,7 +206,7 @@
 
 	if(!extensions)
 	{
-		extensions = [[NSArray arrayWithObjects: @"cbr", @"cbz", nil] retain];
+		extensions = [NSArray arrayWithObjects: @"cbr", @"cbz", nil];
 	}
 	
 	return extensions;
@@ -276,7 +272,7 @@
 	else
 	{
 		NSString * name = [[self instance] nameOfEntry: index];
-		NSString * fileName = [NSString stringWithFormat:@"%i.%@", index, [name pathExtension]];
+		NSString * fileName = [NSString stringWithFormat:@"%li.%@", index, [name pathExtension]];
 		fileName = [solidDirectory stringByAppendingPathComponent: fileName];
 		if(![[NSFileManager defaultManager] fileExistsAtPath: fileName])
 		{
@@ -291,7 +287,7 @@
 		}
 	}
 
-    return [[imageData retain] autorelease];
+    return imageData;
 }
 
 
@@ -473,10 +469,9 @@
 		[page drawWithBox: kPDFDisplayBoxMediaBox];
 	[pageImage unlockFocus];
 	
-	NSData * imageData = [[pageImage TIFFRepresentation] retain];
-	[pageImage release];
+	NSData * imageData = [pageImage TIFFRepresentation];
 	
-    return [imageData autorelease];
+    return imageData;
 }
 
 

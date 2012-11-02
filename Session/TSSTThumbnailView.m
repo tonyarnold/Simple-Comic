@@ -43,11 +43,7 @@
 
 - (void) dealloc
 {
-    [thumbLock release];
     thumbLock = nil;
-    [trackingRects release];
-    [trackingIndexes release];
-    [super dealloc];
 }
 
 
@@ -121,7 +117,7 @@
 		rectIndex = [NSNumber numberWithInteger: counter];
 		tagIndex = [self addTrackingRect: trackRect 
 								   owner: self 
-								userData: rectIndex
+								userData: (__bridge void *)(rectIndex)
 							assumeInside: NO];
 		[trackingRects addIndex: tagIndex];
 		[trackingIndexes addObject: rectIndex];
@@ -183,35 +179,35 @@
 
 - (void)processThumbs
 {
-    NSAutoreleasePool * pool = [NSAutoreleasePool new];
-    ++threadIdent;
-    unsigned localIdent = threadIdent;
-    [thumbLock lock];
-    NSInteger pageCount = [[pageController content] count];
-	NSAutoreleasePool * localPool = [NSAutoreleasePool new];
-    limit = 0;
-    while(limit < (pageCount) && 
-          localIdent == threadIdent && 
-          [dataSource respondsToSelector: @selector(imageForPageAtIndex:)])
-    {
-        [dataSource imageForPageAtIndex: limit];
-
-        
-        if(!(limit % 5))
+    @autoreleasepool {
+        ++threadIdent;
+        unsigned localIdent = threadIdent;
+        [thumbLock lock];
+        NSInteger pageCount = [[pageController content] count];
+	//	NSAutoreleasePool * localPool = [NSAutoreleasePool new];
+        limit = 0;
+        while(limit < (pageCount) && 
+              localIdent == threadIdent && 
+              [dataSource respondsToSelector: @selector(imageForPageAtIndex:)])
         {
-			if([[self window] isVisible])
+            [dataSource imageForPageAtIndex: limit];
+		@autoreleasepool {
+			if(!(limit % 5))
 			{
-				[self setNeedsDisplay: YES];
-			}
+				if([[self window] isVisible])
+				{
+					[self setNeedsDisplay: YES];
+				}
 			
-			[localPool release];
-			localPool = [NSAutoreleasePool new];
+			//[localPool release];
+			//	localPool = [NSAutoreleasePool new];
+			}
+			++limit;
+		}
         }
-        ++limit;
+	//[localPool release];
+        [thumbLock unlock];
     }
-	[localPool release];
-    [thumbLock unlock];
-    [pool release];
     [self setNeedsDisplay: YES];
 }
 

@@ -29,14 +29,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "TSSTPageView.h"
-
-@class TSSTPageView;
-@class TSSTKeyWindow;
-@class TSSTPage;
-@class DTPolishedProgressBar;
-@class TSSTInfoWindow;
-@class TSSTImageView;
-@class TSSTManagedSession;
+#import "TSSTKeyWindow.h"
+#import "TSSTPage.h"
+#import "DTPolishedProgressBar.h"
+#import "TSSTInfoWindow.h"
+#import "TSSTImageView.h"
+#import "TSSTManagedSession.h"
 
 enum PageSelectionMode {
 	None,
@@ -116,9 +114,9 @@ enum PageSelectionMode {
 	float savedZoom;
 }
 
-@property (retain) NSArray * pageSortDescriptor;
+@property (strong) NSArray * pageSortDescriptor;
 @property (assign) NSInteger pageTurn;
-@property (retain) NSString * pageNames;
+@property (strong) NSString * pageNames;
 
 - (id)initWithSession:(TSSTManagedSession *)aSession;
 

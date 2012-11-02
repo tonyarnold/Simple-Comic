@@ -79,7 +79,7 @@ extern NSString *XADDiskLabelKey;
 
 	BOOL shouldstop;
 
-	NSAutoreleasePool *autopool;
+	//NSAutoreleasePool *autopool;
 }
 
 +(void)initialize;

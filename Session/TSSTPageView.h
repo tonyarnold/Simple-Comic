@@ -35,6 +35,7 @@
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
 @class TSSTSessionWindowController;
+@class TSSTManagedSession;
 
 typedef struct {
 	float left;
@@ -85,7 +86,7 @@ typedef struct {
 	
     NSInteger rotation;
 	
-    TSSTSessionWindowController * sessionController;
+    TSSTSessionWindowController * __weak sessionController;
 	
 	direction scrollwheel;
     
@@ -101,7 +102,7 @@ typedef struct {
 }
 
 @property (nonatomic, assign) NSInteger rotation;
-@property (assign)IBOutlet TSSTSessionWindowController * sessionController;
+@property (weak)IBOutlet TSSTSessionWindowController * sessionController;
 
 
 /*  This is where it all begins sets the two pages.  

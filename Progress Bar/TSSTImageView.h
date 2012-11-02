@@ -15,7 +15,7 @@
     NSString * imageName;
 }
 
-@property (retain) NSString * imageName;
+@property (strong) NSString * imageName;
 - (void)setClears:(BOOL)yes;
 - (BOOL)clears;
 

@@ -103,7 +103,7 @@ NSImage * imageScaledToSizeFromImage(NSSize size, NSImage * image)
 	[scaledImage drawInRect: scaledRect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.0];
     [scaledImage unlockFocus];
 	
-	return [scaledImage autorelease];
+	return scaledImage;
 }
 
 
@@ -140,7 +140,7 @@ CGImageRef CGImageRefNamed(NSString * name)
 	CGImageRef        imageRef = NULL;
     CGImageSourceRef  sourceRef;
 	
-    sourceRef = CGImageSourceCreateWithData((CFDataRef)imageData, NULL);
+    sourceRef = CGImageSourceCreateWithData((__bridge CFDataRef)imageData, NULL);
     if(sourceRef)
 	{
         imageRef = CGImageSourceCreateImageAtIndex(sourceRef, 0, NULL);

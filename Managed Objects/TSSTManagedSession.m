@@ -29,7 +29,6 @@
 		{
 			savedAlias = [[BDAlias alloc] initWithData: aliasData];
 			hardPath = [savedAlias fullPath];
-			[savedAlias release];
 			if(!hardPath)
 			{
 				[group setValue: nil forKey: @"session"];

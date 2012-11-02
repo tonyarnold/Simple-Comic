@@ -74,14 +74,10 @@
 {
     id temp;
     [scrollTimer invalidate];
-    [scrollTimer release];
     temp = firstPageImage;
     firstPageImage = nil;
-	[temp release];
     temp = secondPageImage;
     secondPageImage = nil;
-	[temp release];
-	[super dealloc];
 }
 
 
@@ -96,15 +92,13 @@
     scrollKeys = 0;
     if(first != firstPageImage)
 	{
-		[firstPageImage release];
-		firstPageImage = [first retain];
+		firstPageImage = first;
         [self startAnimationForImage: firstPageImage];
     }
     
 	if(second != secondPageImage)
 	{
-		[secondPageImage release];
-		secondPageImage = [second retain];
+		secondPageImage = second;
         [self startAnimationForImage: secondPageImage];
 	}
 
@@ -342,8 +336,7 @@
 										   [NSColor colorWithCalibratedWhite: 1 alpha: 1.0], NSForegroundColorAttributeName,
 										   style, NSParagraphStyleAttributeName,
 										   nil];
-		[style release];
-		NSString * selectionText = [NSString stringWithString: @"Click to select page"];
+		NSString * selectionText = @"Click to select page";
 		if([sessionController pageSelectionCanCrop])
 		{
 			selectionText = [selectionText stringByAppendingString: @"\nDrag to crop"];
@@ -467,7 +460,7 @@
             [secondPageImage drawInRect: NSMakeRect(0,0,NSWidth(rect), NSHeight(rect)) fromRect: secondFragment operation: NSCompositeSourceOver fraction: 1.0];
         }
     [imageFragment unlockFocus];
-    return [imageFragment autorelease];
+    return imageFragment;
 }
 
 
@@ -940,7 +933,6 @@
                                                      selector: @selector(scroll:) 
                                                      userInfo: userInfo
                                                       repeats: YES];
-        [scrollTimer retain];
     }
 }
 
@@ -1072,7 +1064,6 @@
     if(!scrollKeys)
     {
         [scrollTimer invalidate];
-        [scrollTimer release];
         scrollTimer = nil;
         // This is to reset the interpolation.
         [self setNeedsDisplay: YES];
@@ -1164,7 +1155,6 @@
             }
             
             [scrollTimer invalidate];
-            [scrollTimer release];
             scrollTimer = nil;
         }
     }

@@ -143,7 +143,7 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
 
 - (id)initWithData:(NSData *)data
 {
-    return [self initWithAliasHandle:(AliasHandle)DataToHandle((CFDataRef) data)];
+    return [self initWithAliasHandle:(AliasHandle)DataToHandle((__bridge CFDataRef) data)];
 }
 
 - (id)initWithPath:(NSString *)fullPath
@@ -156,7 +156,7 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     OSStatus	anErr = noErr;
     FSRef		ref;
     
-    anErr = PathToFSRef((CFStringRef) fullPath, &ref);
+    anErr = PathToFSRef((__bridge CFStringRef) fullPath, &ref);
     
     if (anErr != noErr) {
 		if (outError) *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:anErr userInfo:nil];
@@ -171,14 +171,14 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     OSStatus	anErr = noErr;
     FSRef		ref, relRef;
     
-    anErr = PathToFSRef((CFStringRef) [relPath stringByAppendingPathComponent:path],
+    anErr = PathToFSRef((__bridge CFStringRef) [relPath stringByAppendingPathComponent:path],
                         &ref);
     
     if (anErr != noErr) {
         return nil;
     }
     
-    anErr = PathToFSRef((CFStringRef) relPath, &relRef);
+    anErr = PathToFSRef((__bridge CFStringRef) relPath, &relRef);
     
     if (anErr != noErr) {
         return nil;
@@ -234,7 +234,7 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
         _alias = NULL;
     }
     
-    [super dealloc];
+    //[super dealloc];
 }
 
 - (AliasHandle)alias
@@ -255,14 +255,14 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
 {
     NSData *result;
     
-    result = (NSData *)HandleToData((Handle) _alias);
+    result = (__bridge NSData *)HandleToData((Handle) _alias);
     
-    return [result autorelease];
+    return result;
 }
 
 - (void)setAliasData:(NSData *)newAliasData
 {
-    [self setAlias:(AliasHandle) DataToHandle((CFDataRef) newAliasData)];
+    [self setAlias:(AliasHandle) DataToHandle((__bridge CFDataRef) newAliasData)];
 }
 
 - (NSString *)fullPath
@@ -280,7 +280,7 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     
     if (_alias != NULL) {
         if (relPath != nil) {
-            anErr = PathToFSRef((CFStringRef)relPath, &relPathRef);
+            anErr = PathToFSRef((__bridge CFStringRef)relPath, &relPathRef);
             
             if (anErr != noErr) {
                 return NULL;
@@ -295,45 +295,45 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
             return NULL;
         }
         
-        result = (NSString *)FSRefToPathCopy(&tempRef);
+        result = (__bridge NSString *)FSRefToPathCopy(&tempRef);
     }
     
-    return [result autorelease];
+    return result;
 }
 
 + (BDAlias *)aliasWithAliasHandle:(AliasHandle)alias
 {
-    return [[[BDAlias alloc] initWithAliasHandle:alias] autorelease];
+    return [[BDAlias alloc] initWithAliasHandle:alias];
 }
 
 + (BDAlias *)aliasWithData:(NSData *)data
 {
-    return [[[BDAlias alloc] initWithData:data] autorelease];
+    return [[BDAlias alloc] initWithData:data];
 }
 
 + (BDAlias *)aliasWithPath:(NSString *)fullPath
 {
-    return [[[BDAlias alloc] initWithPath:fullPath] autorelease];
+    return [[BDAlias alloc] initWithPath:fullPath];
 }
 
 + (BDAlias *)aliasWithPath:(NSString *)fullPath error:(NSError **)outError
 {
-    return [[[BDAlias alloc] initWithPath:fullPath error:outError] autorelease];
+    return [[BDAlias alloc] initWithPath:fullPath error:outError];
 }
 
 + (BDAlias *)aliasWithPath:(NSString *)path relativeToPath:(NSString *)relPath
 {
-    return [[[BDAlias alloc] initWithPath:path relativeToPath:relPath] autorelease];
+    return [[BDAlias alloc] initWithPath:path relativeToPath:relPath];
 }
 
 + (BDAlias *)aliasWithFSRef:(FSRef *)ref
 {
-    return [[[BDAlias alloc] initWithFSRef:ref] autorelease];
+    return [[BDAlias alloc] initWithFSRef:ref];
 }
 
 + (BDAlias *)aliasWithFSRef:(FSRef *)ref relativeToFSRef:(FSRef *)relRef
 {
-    return [[[BDAlias alloc] initWithFSRef:ref relativeToFSRef:relRef] autorelease];
+    return [[BDAlias alloc] initWithFSRef:ref relativeToFSRef:relRef];
 }
 
 - (BOOL) isEqual:(BDAlias*)otherParam

@@ -59,8 +59,8 @@
 {
     NSImage * segmentImage = [NSImage imageNamed: @"org_size"];
     [segmentImage setTemplate: YES];
-    segmentImage = [NSImage imageNamed: @"fullscreen"];
-    [segmentImage setTemplate: YES];
+    //segmentImage = [NSImage imageNamed: @"fullscreen"];
+    //[segmentImage setTemplate: YES];
     segmentImage = [NSImage imageNamed: @"Loupe"];
     [segmentImage setTemplate: YES];
     segmentImage = [NSImage imageNamed: @"rotate_l"];
@@ -101,7 +101,7 @@
 		pageSelectionInProgress = None;
 		mouseMovedTimer = nil;
 //		closing = NO;
-        session = [aSession retain];
+        session = aSession;
         BOOL cascade = [session valueForKey: @"position"] ? NO : YES;
         [self setShouldCascadeWindows: cascade];
 		/* Make sure that the session does not start out in fullscreen, nor with the loupe enabled. */
@@ -111,8 +111,6 @@
 		TSSTSortDescriptor * fileNameSort = [[TSSTSortDescriptor alloc] initWithKey: @"imagePath" ascending: YES];
 		TSSTSortDescriptor * archivePathSort = [[TSSTSortDescriptor alloc] initWithKey: @"group.path" ascending: YES];
 		self.pageSortDescriptor = [NSArray arrayWithObjects: archivePathSort, fileNameSort, nil];
-		[fileNameSort release];
-		[archivePathSort release];
     }
 	
     return self;
@@ -186,14 +184,15 @@
 															  owner: self
 														   userInfo: [NSDictionary dictionaryWithObject: @"normalProgress" forKey: @"purpose"]];
 	[progressBar addTrackingArea: newArea];
-	[newArea release];
 	newArea = [[NSTrackingArea alloc] initWithRect: [fullscreenProgressBar progressRect]
 										   options: NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingActiveInActiveApp 
 											 owner: self
 										  userInfo: [NSDictionary dictionaryWithObject: @"fullScreenProgress" forKey: @"purpose"]];
 	[fullscreenProgressBar addTrackingArea: newArea];
-	[newArea release];
 	[jumpField setDelegate: self];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeFullscreen:) name:@"NSWindowDidEnterFullScreenNotification" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeFullscreen:) name:@"NSWindowDidExitFullScreenNotification" object:nil];
     [self restoreSession];
 }
 
@@ -225,10 +224,6 @@
     [fullscreenProgressBar unbind: @"leftToRight"];
         
     [pageView setSessionController: nil];
-	[pageSortDescriptor release];
-	[pageNames release];
-    [session release];
-    [super dealloc];
 }
 
 
@@ -246,6 +241,7 @@
 //		[[NSNotificationCenter defaultCenter] postNotificationName: TSSTSessionEndNotification object: self];
         return;
     }
+
 	
 	NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
 
@@ -973,9 +969,10 @@
 		NSSavePanel * savePanel = [NSSavePanel savePanel];
 		[savePanel setTitle: @"Extract Page"];
 		[savePanel setPrompt: @"Extract"];
-		if(NSOKButton == [savePanel runModalForDirectory: nil file: [selectedPage name]])
+		[savePanel setNameFieldStringValue:[selectedPage name]];
+		if(NSOKButton == [savePanel runModal])
 		{
-			[[selectedPage pageData] writeToFile: [savePanel filename] atomically: YES];
+			[[selectedPage pageData] writeToFile: [[savePanel URL] path] atomically: YES];
 		}
 	}
 }
@@ -1037,9 +1034,6 @@
 				
 				[[NSWorkspace sharedWorkspace] setIcon: shadowImage forFile: archivePath options: 0];
 				
-				[thumbShadow release];
-				[iconImage release];
-				[shadowImage release];
 			}
 		}
 	}
@@ -1181,21 +1175,22 @@
 	NSRect windowRect;
     if([[session valueForKey: TSSTFullscreen] boolValue])
     {
+		[[[self window] toolbar] setVisible:NO];
         rectangleValue = [NSValue valueWithRect: [[self window] frame]];
         rectData = [NSArchiver archivedDataWithRootObject: rectangleValue];
         [session setValue: rectData forKey: @"position" ];
-        SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
+        //SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
 		windowRect = [[[self window] screen] frame];
-		windowRect.size.height += [(DTSessionWindow *)[self window] toolbarHeight];
+		windowRect.size.height -= [(DTSessionWindow *)[self window] toolbarHeight];
 		[(DTSessionWindow *)[self window] setFullscreen: YES];
 		[[self window] setFrame: windowRect display: NO animate: NO];
 		[[self window] setShowsResizeIndicator: NO];
-		[self adjustStatusBar];
 		mouseMovedTimer = [NSTimer scheduledTimerWithTimeInterval: 2 target: self  selector: @selector(hideCursor) userInfo: nil repeats: NO];
     }
     else
     {
-        SetSystemUIMode(kUIModeNormal, 0);
+        //SetSystemUIMode(kUIModeNormal, 0);
+		[[[self window] toolbar] setVisible:YES];
 		[[bezelWindow parentWindow] removeChildWindow: bezelWindow];
 		[bezelWindow orderOut: self];
 		[(DTSessionWindow *)[self window] setFullscreen: NO];
@@ -1204,12 +1199,12 @@
 		windowRect = [rectangleValue rectValue];
 		[[self window] setShowsResizeIndicator: YES];
 		[[self window] setFrame: windowRect display: NO animate: NO];
-        [self adjustStatusBar];
     }
-	
+	[self adjustStatusBar];
+
 	[[infoWindow parentWindow] removeChildWindow: infoWindow];
 	[infoWindow orderOut: self];
-	
+
     [[loupeWindow parentWindow] removeChildWindow: loupeWindow];
     [loupeWindow orderOut: self];
 }
@@ -1616,7 +1611,7 @@ images are currently visible and then skips over them.
     [NSCursor unhide];
     SetSystemUIMode(kUIModeNormal, 0);
 	
-	[session removeObserver: self forKeyPath: TSSTFullscreen];
+	//[session removeObserver: self forKeyPath: TSSTFullscreen];
     [session removeObserver: self forKeyPath: TSSTPageOrder];
     [session removeObserver: self forKeyPath: TSSTPageScaleOptions];
     [session removeObserver: self forKeyPath: TSSTTwoPageSpread];

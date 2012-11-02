@@ -33,7 +33,7 @@
 		return;
 	}
 	
-	[super toggleToolbarShown: sender];
+	//[super toggleToolbarShown: sender];
 	[(TSSTSessionWindowController *)[self windowController] resizeWindow];
 	[(TSSTSessionWindowController *)[self windowController] resizeView];
 }

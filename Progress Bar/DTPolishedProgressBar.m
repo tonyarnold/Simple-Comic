@@ -42,7 +42,6 @@ cornerRadius, emptyGradient, barGradient, shadowGradient, highlightColor, number
 							 [NSColor colorWithDeviceWhite: 0.2 alpha: 1], NSForegroundColorAttributeName,
 							 stringEmboss, NSShadowAttributeName,
 							 nil];
-		[stringEmboss release];
 		self.horizontalMargin = 35;
 		self.cornerRadius = 4.0;
         self.leftToRight = YES;
@@ -62,12 +61,6 @@ cornerRadius, emptyGradient, barGradient, shadowGradient, highlightColor, number
 	[self removeObserver: self forKeyPath: @"maxValue"];
 	[self removeTrackingArea: [[self trackingAreas] objectAtIndex: 0]];
 	
-	[numberStyle release];
-	[barGradient release];
-	[emptyGradient release];
-	[shadowGradient release];
-	[highlightColor release];
-	[super dealloc];
 }
 
 
@@ -175,16 +168,13 @@ cornerRadius, emptyGradient, barGradient, shadowGradient, highlightColor, number
 	}
 	
 	NSTrackingArea * oldArea = [[self trackingAreas] objectAtIndex: 0];
-	[oldArea retain];
 	[self removeTrackingArea: oldArea];
 	
 	NSTrackingArea * newArea = [[NSTrackingArea alloc] initWithRect: progressRect 
 															options: [oldArea options]
 															  owner: [oldArea owner]
 														   userInfo: [oldArea userInfo]];
-	[oldArea release];
 	[self addTrackingArea: newArea];
-	[newArea release];
 }
 
 

@@ -179,6 +179,8 @@ enum PageSelectionMode {
 - (void)refreshLoupePanel;
 - (void)infoPanelSetupAtPoint:(NSPoint)point;
 
+- (void)handleMouseDragged:(NSNotification*)notification;
+
 - (void)resizeWindow;
 - (void)resizeView;
 - (void)scaleToWindow;

@@ -190,7 +190,8 @@
 										  userInfo: [NSDictionary dictionaryWithObject: @"fullScreenProgress" forKey: @"purpose"]];
 	[fullscreenProgressBar addTrackingArea: newArea];
 	[jumpField setDelegate: self];
-	
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMouseDragged:) name:@"SCMouseDragNotification" object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeFullscreen:) name:@"NSWindowDidEnterFullScreenNotification" object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeFullscreen:) name:@"NSWindowDidExitFullScreenNotification" object:nil];
     [self restoreSession];
@@ -425,7 +426,15 @@
     }
 }
 
+/* Handles mouse drag notifications relayed from progressbar */
+- (void)handleMouseDragged:(NSNotification*)notification {
+	[infoWindow orderOut:self];
+}
 
+- (void)mouseUp:(NSEvent *)theEvent{
+	[self infoPanelSetupAtPoint: [theEvent locationInWindow]];
+	[infoWindow orderFront:self];
+}
 
 - (void)refreshLoupePanel
 {

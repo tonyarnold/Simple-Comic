@@ -202,6 +202,7 @@ cornerRadius, emptyGradient, barGradient, shadowGradient, highlightColor, number
     if(NSMouseInRect( cursorPoint, progressRect, [self isFlipped]))
     {
 		self.currentValue = [self indexForPoint: cursorPoint];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"SCMouseDragNotification" object:self];
     }
 }
 

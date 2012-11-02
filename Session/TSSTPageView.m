@@ -820,7 +820,30 @@
 		NSPoint scrollPoint = NSMakePoint(NSMinX(visible) - ([theEvent deltaX] * 5), NSMinY(visible) + ([theEvent deltaY] * 5));
 		[self scrollPoint: scrollPoint];
 	}
-	
+
+	if ([theEvent deltaX] > 0.0)
+	{
+		if([[[sessionController session] valueForKey: TSSTPageOrder] boolValue])
+		{
+			[sessionController pageLeft: self];
+		}
+		else
+		{
+			[sessionController pageRight: self];
+		}
+	}
+	else if ([theEvent deltaX] < 0.0)
+	{
+		if([[[sessionController session] valueForKey: TSSTPageOrder] boolValue])
+		{
+			[sessionController pageRight: self];
+		}
+		else
+		{
+			[sessionController pageLeft: self];
+		}
+	}
+
     [sessionController refreshLoupePanel];
 }
 

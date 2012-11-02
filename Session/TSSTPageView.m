@@ -820,9 +820,6 @@
 		NSPoint scrollPoint = NSMakePoint(NSMinX(visible) - ([theEvent deltaX] * 5), NSMinY(visible) + ([theEvent deltaY] * 5));
 		[self scrollPoint: scrollPoint];
 	}
-
-
-	NSLog(@"Event: %@", [[sessionController session] valueForKey: TSSTPageOrder]);
 	
 	if ([theEvent deltaX] > 0.0)
 	{

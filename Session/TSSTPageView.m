@@ -821,9 +821,12 @@
 		[self scrollPoint: scrollPoint];
 	}
 
+
+	NSLog(@"Event: %@", [[sessionController session] valueForKey: TSSTPageOrder]);
+	
 	if ([theEvent deltaX] > 0.0)
 	{
-		if([[[sessionController session] valueForKey: TSSTPageOrder] boolValue])
+		if([[sessionController session] valueForKey: TSSTPageOrder] == 0)
 		{
 			[sessionController pageLeft: self];
 		}
@@ -834,7 +837,7 @@
 	}
 	else if ([theEvent deltaX] < 0.0)
 	{
-		if([[[sessionController session] valueForKey: TSSTPageOrder] boolValue])
+		if([[sessionController session] valueForKey: TSSTPageOrder] == 0)
 		{
 			[sessionController pageRight: self];
 		}

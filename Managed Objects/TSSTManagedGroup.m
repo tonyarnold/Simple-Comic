@@ -12,7 +12,6 @@
 #import <XADMaster/XADArchive.h>
 #import <Quartz/Quartz.h>
 #import "TSSTImageUtilities.h"
-#import "BDAlias.h"
 #import "TSSTPage.h"
 
 @implementation TSSTManagedGroup
@@ -28,18 +27,9 @@
 
 - (void)awakeFromFetch
 {
-//	NSLog(@"wake");
 	[super awakeFromFetch];
     groupLock = [NSLock new];
     instance = nil;
-//	NSData * aliasData = [self valueForKey: @"pathData"];
-//	
-//    if (aliasData != nil)
-//    {
-//        BDAlias * savedAlias = [[BDAlias alloc] initWithData: aliasData];
-//		[self setValue: savedAlias forKey: @"alias"];
-//		[savedAlias release];
-//    }
 }
 
 
@@ -62,21 +52,46 @@
 	groupLock = nil;
 }
 
+- (NSData*)bookmarkForURL:(NSURL*)url {
+    NSError* theError = nil;
+    NSData* bookmark = [url bookmarkDataWithOptions:NSURLBookmarkCreationSuitableForBookmarkFile
+					 includingResourceValuesForKeys:nil
+									  relativeToURL:nil
+											  error:&theError];
+    if (theError || (bookmark == nil)) {
+		[NSApp presentError:theError];
+		return nil;
+    }
+    return bookmark;
+}
 
+- (NSURL*)urlForBookmark:(NSData*)bookmark {
+    BOOL bookmarkIsStale = NO;
+    NSError* theError = nil;
+    NSURL* bookmarkURL = [NSURL URLByResolvingBookmarkData:bookmark
+												   options:NSURLBookmarkResolutionWithoutUI
+											 relativeToURL:nil
+									   bookmarkDataIsStale:&bookmarkIsStale
+													 error:&theError];
+
+    if (bookmarkIsStale || (theError != nil)) {
+		[NSApp presentError:theError];
+        return nil;
+    }
+    return bookmarkURL;
+}
 
 - (void)setPath:(NSString *)newPath
 {
-	BDAlias * newAlias = [[BDAlias alloc] initWithPath: newPath];
-	[self setValue: [newAlias aliasData] forKey: @"pathData"];
+	[self setValue: [self bookmarkForURL:[NSURL fileURLWithPath:newPath]] forKey: @"pathData"];
 }
 
 
 
 - (NSString *)path
 {
-	BDAlias * alias = [[BDAlias alloc] initWithData: [self valueForKey: @"pathData"]];
-	NSString * hardPath = [alias fullPath];
-	
+	NSString * hardPath = [[self urlForBookmark:[self valueForKey:@"pathData"]] path];
+
 	if(!hardPath)
 	{
 		NSLog(@"Could not find image group");

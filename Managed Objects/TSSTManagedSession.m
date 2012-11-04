@@ -8,7 +8,6 @@
 
 #import "TSSTManagedSession.h"
 #import "TSSTManagedGroup.h"
-#import "BDAlias.h"
 
 @implementation TSSTManagedSession
 
@@ -19,16 +18,16 @@
 {
 	[super awakeFromFetch];
 	TSSTManagedGroup * group;
-	NSData * aliasData;
+	NSData * bookmarkData;
 	NSString * hardPath;
-	BDAlias * savedAlias;
+	NSURL * savedBookmark;
 	for (group in [self valueForKey:@"groups"])
 	{
-		aliasData = [group valueForKey: @"pathData"];
-		if (aliasData != nil)
+		bookmarkData = [group valueForKey: @"pathData"];
+		if (bookmarkData != nil)
 		{
-			savedAlias = [[BDAlias alloc] initWithData: aliasData];
-			hardPath = [savedAlias fullPath];
+			savedBookmark = [self urlForBookmark:bookmarkData];
+			hardPath = [savedBookmark path];
 			if(!hardPath)
 			{
 				[group setValue: nil forKey: @"session"];
@@ -38,6 +37,21 @@
 	}
 }
 
+- (NSURL*)urlForBookmark:(NSData*)bookmark {
+    BOOL bookmarkIsStale = NO;
+    NSError* theError = nil;
+    NSURL* bookmarkURL = [NSURL URLByResolvingBookmarkData:bookmark
+												   options:NSURLBookmarkResolutionWithoutUI
+											 relativeToURL:nil
+									   bookmarkDataIsStale:&bookmarkIsStale
+													 error:&theError];
+
+    if (bookmarkIsStale || (theError != nil)) {
+		[NSApp presentError:theError];
+        return nil;
+    }
+    return bookmarkURL;
+}
 
 //- (void)savePageOrder
 //{

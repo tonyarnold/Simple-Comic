@@ -1619,7 +1619,8 @@ images are currently visible and then skips over them.
 	mouseMovedTimer = nil;
     [NSCursor unhide];
     SetSystemUIMode(kUIModeNormal, 0);
-	
+	[[[self window] toolbar] setVisible:YES];
+
 	//[session removeObserver: self forKeyPath: TSSTFullscreen];
     [session removeObserver: self forKeyPath: TSSTPageOrder];
     [session removeObserver: self forKeyPath: TSSTPageScaleOptions];

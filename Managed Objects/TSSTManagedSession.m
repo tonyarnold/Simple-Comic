@@ -40,11 +40,7 @@
 - (NSURL*)urlForBookmark:(NSData*)bookmark {
     BOOL bookmarkIsStale = NO;
     NSError* theError = nil;
-    NSURL* bookmarkURL = [NSURL URLByResolvingBookmarkData:bookmark
-												   options:NSURLBookmarkResolutionWithoutUI
-											 relativeToURL:nil
-									   bookmarkDataIsStale:&bookmarkIsStale
-													 error:&theError];
+    NSURL* bookmarkURL = [NSURL URLByResolvingBookmarkData:bookmark options:NSURLBookmarkResolutionWithoutUI relativeToURL:nil bookmarkDataIsStale:&bookmarkIsStale error:&theError];
 
     if (bookmarkIsStale || (theError != nil)) {
 		[NSApp presentError:theError];

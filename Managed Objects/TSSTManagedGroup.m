@@ -54,10 +54,7 @@
 
 - (NSData*)bookmarkForURL:(NSURL*)url {
     NSError* theError = nil;
-    NSData* bookmark = [url bookmarkDataWithOptions:NSURLBookmarkCreationSuitableForBookmarkFile
-					 includingResourceValuesForKeys:nil
-									  relativeToURL:nil
-											  error:&theError];
+    NSData* bookmark = [url bookmarkDataWithOptions:NSURLBookmarkResolutionWithoutUI includingResourceValuesForKeys:nil relativeToURL:nil error:&theError];
     if (theError || (bookmark == nil)) {
 		[NSApp presentError:theError];
 		return nil;
@@ -68,11 +65,7 @@
 - (NSURL*)urlForBookmark:(NSData*)bookmark {
     BOOL bookmarkIsStale = NO;
     NSError* theError = nil;
-    NSURL* bookmarkURL = [NSURL URLByResolvingBookmarkData:bookmark
-												   options:NSURLBookmarkResolutionWithoutUI
-											 relativeToURL:nil
-									   bookmarkDataIsStale:&bookmarkIsStale
-													 error:&theError];
+    NSURL* bookmarkURL = [NSURL URLByResolvingBookmarkData:bookmark options:NSURLBookmarkResolutionWithoutUI relativeToURL:nil bookmarkDataIsStale:&bookmarkIsStale error:&theError];
 
     if (bookmarkIsStale || (theError != nil)) {
 		[NSApp presentError:theError];

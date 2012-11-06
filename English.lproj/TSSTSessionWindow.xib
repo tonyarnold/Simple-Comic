@@ -101,9 +101,10 @@
 								<string key="NSToolbarItemPaletteLabel">Rotate Pages</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSSegmentedControl" key="NSToolbarItemView" id="781108242">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">292</int>
 									<string key="NSFrame">{{13, 14}, {51, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="291449196">
 										<int key="NSCellFlags">67108864</int>
@@ -163,9 +164,10 @@
 								<string key="NSToolbarItemPaletteLabel">Loupe</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSButton" key="NSToolbarItemView" id="239383554">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{7, 14}, {27, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="179540892">
 										<int key="NSCellFlags">67108864</int>
@@ -205,9 +207,10 @@
 								<string key="NSToolbarItemPaletteLabel">Page Layout</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSSegmentedControl" key="NSToolbarItemView" id="773415693">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">292</int>
 									<string key="NSFrame">{{11, 14}, {51, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="399130150">
 										<int key="NSCellFlags">67108864</int>
@@ -260,9 +263,10 @@
 								<string key="NSToolbarItemPaletteLabel">Set Icon</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSButton" key="NSToolbarItemView" id="315762997">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{12, 14}, {27, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="349522909">
 										<int key="NSCellFlags">67108864</int>
@@ -302,9 +306,10 @@
 								<string key="NSToolbarItemPaletteLabel">Capture Page</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSButton" key="NSToolbarItemView" id="554673346">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{26, 14}, {27, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="824020377">
 										<int key="NSCellFlags">67108864</int>
@@ -344,9 +349,10 @@
 								<string key="NSToolbarItemPaletteLabel">Page Order</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSSegmentedControl" key="NSToolbarItemView" id="299051792">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">292</int>
 									<string key="NSFrame">{{8, 14}, {51, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="216990349">
 										<int key="NSCellFlags">67108864</int>
@@ -399,9 +405,10 @@
 								<string key="NSToolbarItemPaletteLabel">Thumbnails</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSButton" key="NSToolbarItemView" id="203162773">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{22, 14}, {27, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="630820395">
 										<int key="NSCellFlags">67108864</int>
@@ -441,9 +448,10 @@
 								<string key="NSToolbarItemPaletteLabel">Turn Page</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSSegmentedControl" key="NSToolbarItemView" id="979521007">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">292</int>
 									<string key="NSFrame">{{5, 14}, {51, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="138422164">
 										<int key="NSCellFlags">67108864</int>
@@ -498,9 +506,10 @@
 								<string key="NSToolbarItemPaletteLabel">Zoom</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSSegmentedControl" key="NSToolbarItemView" id="1063529762">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">292</int>
 									<string key="NSFrame">{{0, 14}, {74, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="513444165">
 										<int key="NSCellFlags">67108864</int>
@@ -566,9 +575,10 @@
 								<string key="NSToolbarItemPaletteLabel">Page Scaling</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSSegmentedControl" key="NSToolbarItemView" id="105859976">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">292</int>
 									<string key="NSFrame">{{0, 14}, {74, 25}}</string>
+									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="73306586">
 										<int key="NSCellFlags">67108864</int>
@@ -745,7 +755,7 @@
 						<reference ref="1021209196"/>
 						<reference ref="364873503"/>
 					</object>
-					<object class="NSArray" key="NSToolbarIBDefaultItems">
+					<object class="NSMutableArray" key="NSToolbarIBDefaultItems">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<reference ref="201598341"/>
 						<reference ref="900103312"/>
@@ -781,7 +791,6 @@
 											<int key="NSvFlags">274</int>
 											<string key="NSFrameSize">{135, 65}</string>
 											<reference key="NSSuperview" ref="687147521"/>
-											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="960506815"/>
 											<string key="NSClassName">TSSTPageView</string>
 											<string key="NSExtension">NSView</string>
@@ -789,7 +798,6 @@
 									</object>
 									<string key="NSFrameSize">{460, 530}</string>
 									<reference key="NSSuperview" ref="447490665"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="229327460"/>
 									<reference key="NSDocView" ref="229327460"/>
 									<object class="NSColor" key="NSBGColor" id="632681898">
@@ -803,7 +811,6 @@
 									<int key="NSvFlags">256</int>
 									<string key="NSFrame">{{444, 0}, {16, 530}}</string>
 									<reference key="NSSuperview" ref="447490665"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="755958761"/>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="447490665"/>
@@ -815,7 +822,6 @@
 									<int key="NSvFlags">256</int>
 									<string key="NSFrame">{{0, 514}, {460, 16}}</string>
 									<reference key="NSSuperview" ref="447490665"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="136009895"/>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<int key="NSsFlags">1</int>
@@ -826,7 +832,6 @@
 							</object>
 							<string key="NSFrame">{{0, 23}, {460, 530}}</string>
 							<reference key="NSSuperview" ref="1020484870"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="687147521"/>
 							<int key="NSsFlags">133168</int>
 							<reference key="NSVScroller" ref="136009895"/>
@@ -841,14 +846,12 @@
 							<int key="NSvFlags">290</int>
 							<string key="NSFrame">{{0, -1}, {450, 23}}</string>
 							<reference key="NSSuperview" ref="1020484870"/>
-							<reference key="NSWindow"/>
 							<string key="NSClassName">DTPolishedProgressBar</string>
 							<string key="NSExtension">NSView</string>
 						</object>
 					</object>
 					<string key="NSFrameSize">{460, 553}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="447490665"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
@@ -894,7 +897,7 @@
 				<string key="NSWindowContentMaxSize">{672, 32}</string>
 				<string key="NSWindowContentMinSize">{672, 32}</string>
 				<object class="NSView" key="NSWindowView" id="763131527">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1022,6 +1025,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{672, 32}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
 				<string key="NSMinSize">{672, 54}</string>
@@ -1041,7 +1045,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{200, 24}</string>
 				<object class="NSView" key="NSWindowView" id="635776540">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1076,6 +1080,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{104, 104}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
 				<string key="NSMinSize">{200, 46}</string>
@@ -1095,7 +1100,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{175, 107}</string>
 				<object class="NSView" key="NSWindowView" id="33915098">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1130,6 +1135,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{200, 200}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
 				<string key="NSMinSize">{175, 129}</string>
@@ -1149,7 +1155,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{213, 107}</string>
 				<object class="NSView" key="NSWindowView" id="836141465">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1163,6 +1169,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{480, 360}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
 				<string key="NSMinSize">{213, 129}</string>
@@ -1182,7 +1189,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="699367481">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1359,6 +1366,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{229, 42}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
@@ -2805,43 +2813,11 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">757</int>
+			<int key="maxID">758</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<object class="IBPartialClassDescription">
-					<string key="className">DTPageTurnToolbarItem</string>
-					<string key="superclassName">DTToolbarItem</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/DTPageTurnToolbarItem.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">DTPolishedProgressBar</string>
-					<string key="superclassName">NSView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/DTPolishedProgressBar.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">DTSessionWindow</string>
-					<string key="superclassName">NSWindow</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/DTSessionWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">DTToolbarItem</string>
-					<string key="superclassName">NSToolbarItem</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/DTToolbarItem.h</string>
-					</object>
-				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">FirstResponder</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -2949,481 +2925,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTBezelView</string>
-					<string key="superclassName">NSView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTBezelView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTBezelWindow</string>
-					<string key="superclassName">NSPanel</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTBezelWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTCircularImageView</string>
-					<string key="superclassName">NSImageView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTCircularImageView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTImageView</string>
-					<string key="superclassName">NSImageView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTImageView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTInfoView</string>
-					<string key="superclassName">NSView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTInfoView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTInfoWindow</string>
-					<string key="superclassName">NSPanel</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTInfoWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTKeyWindow</string>
-					<string key="superclassName">NSPanel</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTKeyWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTPageView</string>
-					<string key="superclassName">NSView</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">sessionController</string>
-						<string key="NS.object.0">TSSTSessionWindowController</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">sessionController</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">sessionController</string>
-							<string key="candidateClassName">TSSTSessionWindowController</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTPageView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTSessionWindowController</string>
-					<string key="superclassName">NSWindowController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>cancelJumpPanel:</string>
-							<string>changeFullscreen:</string>
-							<string>changePageOrder:</string>
-							<string>changeScaling:</string>
-							<string>changeTwoPage:</string>
-							<string>extractPage:</string>
-							<string>firstPage:</string>
-							<string>goToPage:</string>
-							<string>lastPage:</string>
-							<string>launchJumpPanel:</string>
-							<string>noRotation:</string>
-							<string>pageLeft:</string>
-							<string>pageRight:</string>
-							<string>removePages:</string>
-							<string>rotate:</string>
-							<string>rotateLeft:</string>
-							<string>rotateRight:</string>
-							<string>setArchiveIcon:</string>
-							<string>shiftPageLeft:</string>
-							<string>shiftPageRight:</string>
-							<string>skipLeft:</string>
-							<string>skipRight:</string>
-							<string>toggleLoupe:</string>
-							<string>togglePageExpose:</string>
-							<string>turnPage:</string>
-							<string>zoom:</string>
-							<string>zoomIn:</string>
-							<string>zoomOut:</string>
-							<string>zoomReset:</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>cancelJumpPanel:</string>
-							<string>changeFullscreen:</string>
-							<string>changePageOrder:</string>
-							<string>changeScaling:</string>
-							<string>changeTwoPage:</string>
-							<string>extractPage:</string>
-							<string>firstPage:</string>
-							<string>goToPage:</string>
-							<string>lastPage:</string>
-							<string>launchJumpPanel:</string>
-							<string>noRotation:</string>
-							<string>pageLeft:</string>
-							<string>pageRight:</string>
-							<string>removePages:</string>
-							<string>rotate:</string>
-							<string>rotateLeft:</string>
-							<string>rotateRight:</string>
-							<string>setArchiveIcon:</string>
-							<string>shiftPageLeft:</string>
-							<string>shiftPageRight:</string>
-							<string>skipLeft:</string>
-							<string>skipRight:</string>
-							<string>toggleLoupe:</string>
-							<string>togglePageExpose:</string>
-							<string>turnPage:</string>
-							<string>zoom:</string>
-							<string>zoomIn:</string>
-							<string>zoomOut:</string>
-							<string>zoomReset:</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">cancelJumpPanel:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">changeFullscreen:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">changePageOrder:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">changeScaling:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">changeTwoPage:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">extractPage:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">firstPage:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">goToPage:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">lastPage:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">launchJumpPanel:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">noRotation:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">pageLeft:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">pageRight:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">removePages:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">rotate:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">rotateLeft:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">rotateRight:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">setArchiveIcon:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">shiftPageLeft:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">shiftPageRight:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">skipLeft:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">skipRight:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">toggleLoupe:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">togglePageExpose:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">turnPage:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">zoom:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">zoomIn:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">zoomOut:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">zoomReset:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>bezelWindow</string>
-							<string>exposeBezel</string>
-							<string>exposeView</string>
-							<string>fullscreenProgressBar</string>
-							<string>infoPicture</string>
-							<string>infoWindow</string>
-							<string>jumpField</string>
-							<string>jumpPanel</string>
-							<string>loupeWindow</string>
-							<string>pageController</string>
-							<string>pageScrollView</string>
-							<string>pageView</string>
-							<string>progressBar</string>
-							<string>thumbnailPanel</string>
-							<string>zoomView</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSPanel</string>
-							<string>NSPanel</string>
-							<string>NSView</string>
-							<string>DTPolishedProgressBar</string>
-							<string>NSImageView</string>
-							<string>TSSTInfoWindow</string>
-							<string>NSTextField</string>
-							<string>NSPanel</string>
-							<string>TSSTInfoWindow</string>
-							<string>NSArrayController</string>
-							<string>NSScrollView</string>
-							<string>TSSTPageView</string>
-							<string>DTPolishedProgressBar</string>
-							<string>TSSTInfoWindow</string>
-							<string>NSImageView</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>bezelWindow</string>
-							<string>exposeBezel</string>
-							<string>exposeView</string>
-							<string>fullscreenProgressBar</string>
-							<string>infoPicture</string>
-							<string>infoWindow</string>
-							<string>jumpField</string>
-							<string>jumpPanel</string>
-							<string>loupeWindow</string>
-							<string>pageController</string>
-							<string>pageScrollView</string>
-							<string>pageView</string>
-							<string>progressBar</string>
-							<string>thumbnailPanel</string>
-							<string>zoomView</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">bezelWindow</string>
-								<string key="candidateClassName">NSPanel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">exposeBezel</string>
-								<string key="candidateClassName">NSPanel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">exposeView</string>
-								<string key="candidateClassName">NSView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">fullscreenProgressBar</string>
-								<string key="candidateClassName">DTPolishedProgressBar</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">infoPicture</string>
-								<string key="candidateClassName">NSImageView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">infoWindow</string>
-								<string key="candidateClassName">TSSTInfoWindow</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">jumpField</string>
-								<string key="candidateClassName">NSTextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">jumpPanel</string>
-								<string key="candidateClassName">NSPanel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">loupeWindow</string>
-								<string key="candidateClassName">TSSTInfoWindow</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">pageController</string>
-								<string key="candidateClassName">NSArrayController</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">pageScrollView</string>
-								<string key="candidateClassName">NSScrollView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">pageView</string>
-								<string key="candidateClassName">TSSTPageView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">progressBar</string>
-								<string key="candidateClassName">DTPolishedProgressBar</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">thumbnailPanel</string>
-								<string key="candidateClassName">TSSTInfoWindow</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">zoomView</string>
-								<string key="candidateClassName">NSImageView</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTSessionWindowController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTThumbnailView</string>
-					<string key="superclassName">NSView</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>pageController</string>
-							<string>thumbnailView</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSArrayController</string>
-							<string>TSSTImageView</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>pageController</string>
-							<string>thumbnailView</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">pageController</string>
-								<string key="candidateClassName">NSArrayController</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">thumbnailView</string>
-								<string key="candidateClassName">TSSTImageView</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTThumbnailView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TSSTTransparentView</string>
-					<string key="superclassName">NSView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TSSTTransparentView.h</string>
 					</object>
 				</object>
 			</object>

@@ -1366,15 +1366,7 @@
 
 - (void)magnifyWithEvent:(NSEvent *)event
 {
-	BOOL isFullscreen = [[[sessionController session] valueForKey: TSSTFullscreen] boolValue];
-	if (([event deltaZ] > 5) && !isFullscreen)
-	{
-		[[sessionController session] setValue: [NSNumber numberWithBool: YES] forKey: TSSTFullscreen];
-	}
-	else if(([event deltaZ] < -5) && isFullscreen)
-	{
-		[[sessionController session] setValue: [NSNumber numberWithBool: NO] forKey: TSSTFullscreen];
-	}
+	[[sessionController window]toggleFullScreen:self];	
 }
 
 //int scalingOption = [[[sessionController session] valueForKey: TSSTPageScaleOptions] intValue];

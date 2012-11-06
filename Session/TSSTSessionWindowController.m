@@ -1188,7 +1188,7 @@
         rectangleValue = [NSValue valueWithRect: [[self window] frame]];
         rectData = [NSArchiver archivedDataWithRootObject: rectangleValue];
         [session setValue: rectData forKey: @"position" ];
-        //SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
+        SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
 		windowRect = [[[self window] screen] frame];
 		windowRect.size.height -= [(DTSessionWindow *)[self window] toolbarHeight];
 		[(DTSessionWindow *)[self window] setFullscreen: YES];
@@ -1198,7 +1198,7 @@
     }
     else
     {
-        //SetSystemUIMode(kUIModeNormal, 0);
+        SetSystemUIMode(kUIModeNormal, 0);
 		[[[self window] toolbar] setVisible:YES];
 		[[bezelWindow parentWindow] removeChildWindow: bezelWindow];
 		[bezelWindow orderOut: self];
@@ -1216,6 +1216,8 @@
 
     [[loupeWindow parentWindow] removeChildWindow: loupeWindow];
     [loupeWindow orderOut: self];
+
+	[self resizeWindow];
 }
 
 

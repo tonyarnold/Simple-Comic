@@ -166,7 +166,7 @@
 			{
 				nestedDescription = [NSEntityDescription insertNewObjectForEntityForName: @"Image" inManagedObjectContext: [self managedObjectContext]];
 				[nestedDescription setValue: fullPath forKey: @"imagePath"];
-				[nestedDescription setValue: [NSNumber numberWithBool: YES] forKey: @"text"];
+				[nestedDescription setValue: @YES forKey: @"text"];
 			}
 			if(nestedDescription)
 			{
@@ -201,7 +201,7 @@
 	static NSArray * extensions = nil;
 	if(!extensions)
 	{
-		extensions = [NSArray arrayWithObjects: @"rar", @"cbr", @"zip", @"cbz", @"7z", @"cb7", @"lha", @"lzh", nil];
+		extensions = @[@"rar", @"cbr", @"zip", @"cbz", @"7z", @"cb7", @"lha", @"lzh"];
 	}
 	
 	return extensions;
@@ -214,7 +214,7 @@
 
 	if(!extensions)
 	{
-		extensions = [NSArray arrayWithObjects: @"cbr", @"cbz", nil];
+		extensions = @[@"cbr", @"cbz"];
 	}
 	
 	return extensions;
@@ -350,14 +350,14 @@
             {
                 nestedDescription = [NSEntityDescription insertNewObjectForEntityForName: @"Image" inManagedObjectContext: [self managedObjectContext]];
 				[nestedDescription setValue: fileName forKey: @"imagePath"];
-				[nestedDescription setValue: [NSNumber numberWithInt: counter] forKey: @"index"];
+				[nestedDescription setValue: @(counter) forKey: @"index"];
             }
             else if([[[NSUserDefaults standardUserDefaults] valueForKey: TSSTNestedArchives] boolValue] && [[TSSTManagedArchive archiveExtensions] containsObject: extension])
             {
                 fileData = [imageArchive contentsOfEntry: counter];
                 nestedDescription = [NSEntityDescription insertNewObjectForEntityForName: @"Archive" inManagedObjectContext: [self managedObjectContext]];
                 [nestedDescription setValue: fileName forKey: @"name"];
-                [nestedDescription setValue: [NSNumber numberWithBool: YES] forKey: @"nested"];
+                [nestedDescription setValue: @YES forKey: @"nested"];
 				
                 collision = 0;
                 do {
@@ -379,8 +379,8 @@
 			{
 				nestedDescription = [NSEntityDescription insertNewObjectForEntityForName: @"Image" inManagedObjectContext: [self managedObjectContext]];
 				[nestedDescription setValue: fileName forKey: @"imagePath"];
-				[nestedDescription setValue: [NSNumber numberWithInt: counter] forKey: @"index"];
-				[nestedDescription setValue: [NSNumber numberWithBool: YES] forKey: @"text"];
+				[nestedDescription setValue: @(counter) forKey: @"index"];
+				[nestedDescription setValue: @YES forKey: @"text"];
 			}
             else if([extension isEqualToString: @"pdf"])
             {
@@ -397,7 +397,7 @@
 				[fileData writeToFile: archivePath atomically: YES];
 
                 [nestedDescription setValue: archivePath forKey: @"path"];
-                [nestedDescription setValue: [NSNumber numberWithBool: YES] forKey: @"nested"];
+                [nestedDescription setValue: @YES forKey: @"nested"];
 				[(TSSTManagedPDF *)nestedDescription pdfContents];
             }
 			
@@ -495,7 +495,7 @@
     {
         imageDescription = [NSEntityDescription insertNewObjectForEntityForName: @"Image" inManagedObjectContext: [self managedObjectContext]];
         [imageDescription setValue: [NSString stringWithFormat: @"%i", pageNumber + 1] forKey: @"imagePath"];
-        [imageDescription setValue: [NSNumber numberWithInt: pageNumber] forKey: @"index"];
+        [imageDescription setValue: @(pageNumber) forKey: @"index"];
         [pageSet addObject: imageDescription];
     }
 	[self setValue: pageSet forKey: @"images"];

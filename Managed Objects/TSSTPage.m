@@ -59,7 +59,7 @@ static NSSize monospaceCharacterSize;
 
 	if(!textTypes)
 	{
-		textTypes = [NSArray arrayWithObjects: @"txt", @"nfo", @"info", nil];
+		textTypes = @[@"txt", @"nfo", @"info"];
 	}
 	
 	return textTypes;
@@ -69,7 +69,7 @@ static NSSize monospaceCharacterSize;
 + (void)initialize
 {
 	/* Figure out the size of a single monospace character to set the tab stops */
-	NSDictionary * fontAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [NSFont fontWithName: @"Monaco" size: 14], NSFontAttributeName, nil];
+	NSDictionary * fontAttributes = @{NSFontAttributeName: [NSFont fontWithName: @"Monaco" size: 14]};
 	monospaceCharacterSize = [@"A" boundingRectWithSize: NSZeroSize options: 0 attributes: fontAttributes].size;
 	
 	NSTextTab * tabStop;
@@ -87,8 +87,8 @@ static NSSize monospaceCharacterSize;
 	NSMutableParagraphStyle * style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
 	[style setTabStops: tabStops];
 	
-	TSSTInfoPageAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [NSFont fontWithName: @"Monaco" size: 14],  NSFontAttributeName,
-							  style, NSParagraphStyleAttributeName, nil];
+	TSSTInfoPageAttributes = @{NSFontAttributeName: [NSFont fontWithName: @"Monaco" size: 14],
+							  NSParagraphStyleAttributeName: style};
 	
 }
 
@@ -147,9 +147,9 @@ static NSSize monospaceCharacterSize;
 	if(!NSEqualSizes(NSZeroSize, imageSize))
 	{
 		aspect = imageSize.width / imageSize.height;
-		[self setValue: [NSNumber numberWithShort: imageSize.width] forKey: @"width"];
-		[self setValue: [NSNumber numberWithShort: imageSize.height] forKey: @"height"];
-		[self setValue: [NSNumber numberWithFloat: aspect] forKey: @"aspectRatio"];
+		[self setValue: @(imageSize.width) forKey: @"width"];
+		[self setValue: @(imageSize.height) forKey: @"height"];
+		[self setValue: @(aspect) forKey: @"aspectRatio"];
 	}	
 }
 

@@ -88,7 +88,7 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
 //		NSLog(@"release");
         CFRelease(currentImage);
         QLThumbnailRequestFlushContext(thumbnail, cgContext);
-        CFRelease(cgContext);
+        CGContextRelease(cgContext);
 		}
 		
 		

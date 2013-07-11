@@ -132,25 +132,6 @@ NSBezierPath * roundedRectWithCornerRadius(NSRect aRect, float radius)
     return path;	
 }
 
-
-CGImageRef CGImageRefNamed(NSString * name)
-{
-	NSData * imageData = [[NSImage imageNamed: name] TIFFRepresentation];
-	
-	CGImageRef        imageRef = NULL;
-    CGImageSourceRef  sourceRef;
-	
-    sourceRef = CGImageSourceCreateWithData((__bridge CFDataRef)imageData, NULL);
-    if(sourceRef)
-	{
-        imageRef = CGImageSourceCreateImageAtIndex(sourceRef, 0, NULL);
-        CFRelease(sourceRef);
-    }
-	
-    return imageRef;
-}
-
-
 CGFloat DegreesToRadians(CGFloat degrees) 
 {
 	return degrees * M_PI / 180;

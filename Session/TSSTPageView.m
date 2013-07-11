@@ -72,11 +72,8 @@
 
 - (void) dealloc
 {
-    id temp;
     [scrollTimer invalidate];
-    temp = firstPageImage;
     firstPageImage = nil;
-    temp = secondPageImage;
     secondPageImage = nil;
 }
 
@@ -759,7 +756,7 @@
 		loupePower += [theEvent deltaY] > 0 ? 1 : -1;
 		loupePower = loupePower < 2 ? 2 : loupePower;
 		loupePower = loupePower > 6 ? 6 : loupePower;
-		[defaultsController setValue: [NSNumber numberWithFloat: loupePower] forKey: TSSTLoupePower];
+		[defaultsController setValue: @(loupePower) forKey: TSSTLoupePower];
 	}
 //	else if(scaling == 1)
 //	{
@@ -1201,7 +1198,7 @@
 - (void)rightMouseDown:(NSEvent *)theEvent
 {
 	BOOL loupe = [[[sessionController session] valueForKey: @"loupe"] boolValue];
-	[[sessionController session] setValue: [NSNumber numberWithBool: !loupe] forKey: @"loupe"];
+	[[sessionController session] setValue: @(!loupe) forKey: @"loupe"];
 }
 
 

@@ -515,7 +515,7 @@
 {
     BOOL spread = [[session valueForKey: TSSTTwoPageSpread] boolValue];
 
-    [session setValue: [NSNumber numberWithBool: !spread] forKey: TSSTTwoPageSpread];
+    [session setValue: @(!spread) forKey: TSSTTwoPageSpread];
 }
 
 
@@ -523,7 +523,7 @@
 - (IBAction)changePageOrder:(id)sender
 {
     BOOL pageOrder = [[session valueForKey: TSSTPageOrder] boolValue];
-    [session setValue: [NSNumber numberWithBool: !pageOrder] forKey: TSSTPageOrder];
+    [session setValue: @(!pageOrder) forKey: TSSTPageOrder];
 }
 
 
@@ -531,7 +531,7 @@
 - (IBAction)changeFullscreen:(id)sender
 {
     BOOL fullscreen = [[session valueForKey: TSSTFullscreen] boolValue];
-    [session setValue: [NSNumber numberWithBool: !fullscreen] forKey: TSSTFullscreen];
+    [session setValue: @(!fullscreen) forKey: TSSTFullscreen];
 }
 
 

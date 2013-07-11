@@ -55,7 +55,7 @@ static NSSize monospaceCharacterSize;
 
 + (NSArray *)textExtensions
 {
-	static NSMutableArray * textTypes = nil;
+	static NSArray * textTypes = nil;
 
 	if(!textTypes)
 	{

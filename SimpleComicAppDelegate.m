@@ -147,7 +147,7 @@ static NSArray * allAvailableStringEncodings(void)
             encoding = 101;
         }
 		
-        [codeNumbers addObject: [NSNumber numberWithUnsignedInteger: encoding]];
+        [codeNumbers addObject: @(encoding)];
         ++counter;
     }
     
@@ -178,24 +178,24 @@ static NSArray * allAvailableStringEncodings(void)
 + (void)initialize
 {
     NSMutableDictionary* standardDefaults = [NSMutableDictionary dictionary];
-	[standardDefaults setObject: [NSNumber numberWithBool: NO] forKey: TSSTPageOrder];
-	[standardDefaults setObject: [NSNumber numberWithFloat: 0.1] forKey: TSSTPageZoomRate];
-	[standardDefaults setObject: [NSNumber numberWithInt: 1] forKey: TSSTPageScaleOptions];
-    [standardDefaults setObject: [NSNumber numberWithInt: 100] forKey: TSSTThumbnailSize];
-    [standardDefaults setObject: [NSNumber numberWithBool: YES] forKey: TSSTTwoPageSpread];
-    [standardDefaults setObject: [NSNumber numberWithBool: NO] forKey: TSSTIgnoreDonation];
-    [standardDefaults setObject: [NSNumber numberWithBool: YES] forKey: TSSTConstrainScale];
-    [standardDefaults setObject: [NSNumber numberWithBool: YES] forKey: TSSTScrollersVisible];
-    [standardDefaults setObject: [NSNumber numberWithBool: YES] forKey: TSSTSessionRestore];
-    [standardDefaults setObject: [NSNumber numberWithBool: YES] forKey: TSSTAutoPageTurn];
-	[standardDefaults setObject: [NSArchiver archivedDataWithRootObject: [NSColor whiteColor]] forKey: TSSTBackgroundColor];
-    [standardDefaults setObject: [NSNumber numberWithBool: YES] forKey: TSSTWindowAutoResize];
-    [standardDefaults setObject: [NSNumber numberWithInt: 500] forKey: TSSTLoupeDiameter];
-	[standardDefaults setObject: [NSNumber numberWithFloat: 2.0] forKey: TSSTLoupePower];
- 	[standardDefaults setObject: [NSNumber numberWithBool: YES] forKey: TSSTStatusbarVisible];
-    [standardDefaults setObject: [NSNumber numberWithBool: YES] forKey: TSSTLonelyFirstPage];
-	[standardDefaults setObject: [NSNumber numberWithBool: YES] forKey: TSSTNestedArchives];
-	[standardDefaults setObject: [NSNumber numberWithInt: 0] forKey: TSSTUpdateSelection];
+	standardDefaults[TSSTPageOrder] = @NO;
+	standardDefaults[TSSTPageZoomRate] = @0.1f;
+	standardDefaults[TSSTPageScaleOptions] = @1;
+    standardDefaults[TSSTThumbnailSize] = @100;
+    standardDefaults[TSSTTwoPageSpread] = @YES;
+    standardDefaults[TSSTIgnoreDonation] = @NO;
+    standardDefaults[TSSTConstrainScale] = @YES;
+    standardDefaults[TSSTScrollersVisible] = @YES;
+    standardDefaults[TSSTSessionRestore] = @YES;
+    standardDefaults[TSSTAutoPageTurn] = @YES;
+	standardDefaults[TSSTBackgroundColor] = [NSArchiver archivedDataWithRootObject: [NSColor whiteColor]];
+    standardDefaults[TSSTWindowAutoResize] = @YES;
+    standardDefaults[TSSTLoupeDiameter] = @500;
+	standardDefaults[TSSTLoupePower] = @2.0f;
+ 	standardDefaults[TSSTStatusbarVisible] = @YES;
+    standardDefaults[TSSTLonelyFirstPage] = @YES;
+	standardDefaults[TSSTNestedArchives] = @YES;
+	standardDefaults[TSSTUpdateSelection] = @0;
 	
 	NSUserDefaultsController * sharedDefaultsController = [NSUserDefaultsController sharedUserDefaultsController];
 	[sharedDefaultsController setInitialValues: standardDefaults];
@@ -460,8 +460,7 @@ static NSArray * allAvailableStringEncodings(void)
 		}
     }
 	
-	NSDictionary * storeOptions = [NSDictionary dictionaryWithObject: [NSNumber numberWithBool: YES] 
-															  forKey: NSMigratePersistentStoresAutomaticallyOption];
+	NSDictionary * storeOptions = @{NSMigratePersistentStoresAutomaticallyOption: @YES};
     url = [NSURL fileURLWithPath: [applicationSupportFolder stringByAppendingPathComponent: @"SimpleComic.sql"]];
 	
 	error = nil;
@@ -519,7 +518,7 @@ static NSArray * allAvailableStringEncodings(void)
 {
 	
     NSArray * paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-    NSString * basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
+    NSString * basePath = ([paths count] > 0) ? paths[0] : NSTemporaryDirectory();
     return [basePath stringByAppendingPathComponent: @"Simple Comic"];
 }
 
@@ -849,13 +848,13 @@ static NSArray * allAvailableStringEncodings(void)
         [self updateEncodingMenuTestedAgainst: data];
         NSArray * encodingIdentifiers = [[encodingMenu itemArray] valueForKey: @"representedObject"];
 		
-		NSUInteger index = [encodingIdentifiers indexOfObject: [NSNumber numberWithUnsignedInteger: guess]];
+		NSUInteger index = [encodingIdentifiers indexOfObject: @(guess)];
 		NSUInteger counter = 0;
 //		NSStringEncoding encoding;
 		NSNumber * encoding;
 		while(!testText)
 		{
-			encoding = [encodingIdentifiers objectAtIndex: counter];
+			encoding = encodingIdentifiers[counter];
 			if ([encoding class] != [NSNull class]) {
 				testText = [[NSString alloc] initWithData: data encoding: [encoding unsignedIntegerValue]];
 			}
